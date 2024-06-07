@@ -1,0 +1,38 @@
+{
+    "price": "$399,000",
+    "type": "Single Family",
+    "address": "8407 171 ST NW NW|Edmonton, Alberta T5T0C7",
+    "latitude": "53.5173615338435",
+    "longitude": "-113.6164052",
+    "zone": [
+        {
+            "code": "RS",
+            "description": "Small Scale Residential"
+        }
+    ],
+    "photos": [
+        "https:\/\/cdn.realtor.ca\/listings\/TS638496892099570000\/reb10\/highres\/2\/E4384032_1.jpg"
+    ],
+    "parking": [
+        "Oversize",
+        "Detached Garage"
+    ],
+    "amenities_nearby": [
+        "Playground",
+        "Public Transit",
+        "Schools",
+        "Shopping"
+    ],
+    "bedrooms": "3",
+    "bathrooms": "3",
+    "size_interior": "100.73 m2",
+    "ownership_type": "Freehold",
+    "public_remarks": "INVESTOR ALERT! Cheerful bungalow nestled in prime location.Walking distance to West Edmonton Mall & 10km to downtown Edmonton.  3 + 1 Bedroom and 2.5 Bathrooms. Main Floor Extended ceilings, 3 Bedroom finish the main floor, basement partially finished  with bedroom and 3 piece bathroom. 8000 square feet private lot from patio door access- 60 ft wide by 130 ft deep. Great investment opportunity for infill or building multiplex. Only fridge is the only appliance included.  NOTE: Foundation issues with south wall & driveway repairs. Quote available from 2022 with reputable foundation repair company. - Buyer needs to accept Title insurance in lieu of RPR with compliance. - Property Sold as is - where is , with no Warranties or representations. (31188654)",
+    "postal_code": "T5T0C7",
+    "historical_data": {
+        "price_change_date": "",
+        "photo_change_date": "2024-04-26 4:46:49 AM"
+    },
+    "additional_features": [],
+    "listing_type": "residential"
+}
