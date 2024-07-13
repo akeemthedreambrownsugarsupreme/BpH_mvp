@@ -1,0 +1,5 @@
+shapely
+pandas
+numpy
+tiktoken==0.7.0
+openai

@@ -1,0 +1,29 @@
+{
+    "renter": [
+        "Price",
+        "Type of Property",
+        "Address",
+        "Latitude and Longitude",
+        "Photos",
+        "Parking",
+        "Nearby Amenities",
+        "Bedrooms and Bathrooms",
+        "Size of the Property",
+        "Ownership Type",
+        "Public Remarks",
+        "Postal Code",
+        "Historical Data",
+        "Additional Features"
+    ],
+    "developer": [
+        "Address",
+        "Postal Code",
+        "Latitude and Longitude",
+        "Zone",
+        "Photos",
+        "Services (water and electricity)",
+        "Size of Property",
+        "Nearby Amenities",
+        "Public Remark"
+    ]
+}
