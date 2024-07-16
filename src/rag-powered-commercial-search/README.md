@@ -7,6 +7,7 @@ This project implements a backend system for searching commercial properties usi
 
 ```sh
 pip install -r requirements.txt
+```
 
 ### Running the Application
 
@@ -14,6 +15,7 @@ To start the FastAPI application:
 
 ```sh
 python src/main.py
+```
 
 
 ## API Endpoints
