@@ -1,6 +1,7 @@
 # RAG-Powered Commercial Search
 
-This project implements a backend system for searching commercial properties using a Retrieval-Augmented Generation (RAG) based Large Language Model (LLM) integrated with FastAPI. The `index.html` file is used as a simple UI for testing purposes and should be modified for use in the desired production environment. The system leverages OpenAI's GPT-4 for generating responses and Pinecone for embedding storage and search.
+This project implements a backend system for searching commercial properties using a Retrieval-Augmented Generation (RAG) based Large Language Model (LLM) integrated with FastAPI. The preprocessed and embedded data is stored in the Pinecone database through the data pipeline scripts. For updating and adding more data, refer to the data pipeline scripts. This code is designed to accept a query and search through the existing data. The `index.html` file is used as a simple UI for testing purposes and should be modified for use in the desired production environment. The system leverages OpenAI's GPT-4 for generating responses and Pinecone for embedding storage and search.
+
 
 
 ### Install the dependencies:
