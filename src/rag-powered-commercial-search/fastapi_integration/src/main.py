@@ -36,6 +36,16 @@ def build_query(
     location_type: str = Form(...),
 ):
     try:
+
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        data_dir = os.path.join(current_dir, "../data")
+
+        # Ensure the directory exists
+        if not os.path.exists(data_dir):
+            os.makedirs(data_dir)
+
+        output_file_path = os.path.join(data_dir, "query_embedding.npz")
+
         current_dir = os.path.dirname(os.path.abspath(__file__))
         output_file_path = os.path.join(current_dir, "../data/query_embedding.npz")
 
