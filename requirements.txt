@@ -3,3 +3,6 @@ pandas
 numpy
 tiktoken==0.7.0
 openai
+pinecone-client==5.0.0
+fastapi
+uvicorn

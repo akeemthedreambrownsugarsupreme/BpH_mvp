@@ -1,8 +1,0 @@
-fastapi
-uvicorn
-jinja2
-pydantic
-openai
-pinecone-client
-numpy
-python-dotenv
