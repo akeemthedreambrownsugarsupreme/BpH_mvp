@@ -14,11 +14,11 @@ router = APIRouter()
 @router.post("/search")
 def perform_search(query: str):
     query_json = json.loads(query)
-    building_type: str = query_json["building_type"]
+    building_type: str = query_json.get("building_type")
     residential_type: str = query_json.get("residential_type")
     single_family_type: str = query_json.get("single_family_type")
     apartment_type: str = query_json.get("apartment_type")
-    location_type: str = query_json["location_type"]
+    location_type: str = query_json.get("location_type")
     try:
         query, query_embedding = build_query_embedding(
             building_type,
