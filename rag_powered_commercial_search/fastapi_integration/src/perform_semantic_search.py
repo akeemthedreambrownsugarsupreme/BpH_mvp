@@ -3,12 +3,13 @@ import numpy as np
 from openai import OpenAI
 from dotenv import load_dotenv
 from pinecone import Pinecone
+import json
 
 load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-Pinecone = Pinecone(os.getenv("PINECONE_API_CODE"))
-index = Pinecone.Index(os.getenv("INDEX_NAME"))
+Pinecone = Pinecone(os.getenv("PINECONE_API_KEY"))
+index = Pinecone.Index(os.getenv("PINECONE_COMMERCIAL_INDEX_NAME"))
 
 
 def load_query_and_embedding(file_path):
@@ -19,8 +20,9 @@ def load_query_and_embedding(file_path):
 
 
 def perform_semantic_search(query_embedding):
+    print("Performing semantic search...", type(query_embedding))
     response = index.query(
-        vector=query_embedding.tolist(), top_k=3, include_metadata=True
+        vector=query_embedding, top_k=3, include_metadata=True
     )
     return response
 
@@ -47,10 +49,21 @@ def extract_contexts(response):
 
 def create_prompt(query, contexts):
     prompt_start = (
-        "You are an AI tasked with finding the best lots for building residential apartments. "
+        "You are an AI tasked with finding the best lots for building residential apartments."
         "The user has provided the following requirements: \n\n"
         "Based on these requirements, return three available lots that meet the criteria. "
-        "Provide a summary in English explaining why these lots are recommended.\n\n"
+        "Provide a recommendation_summary in English explaining why these lots are recommended.\n\n"
+        "Only answer questions using the provided context. Do not provide any information that is not in the context and remove duplicates in choices if the latitude and longitude are the same. "
+        "Provide the information in the following JSON format:\n"
+        "{\n"
+        "  \"recommendation_summary\": \"...\",\n"
+        "  \"type\": \"...\",\n"
+        "  \"price\": \"...\",\n"
+        "  \"address\": \"...\",\n"
+        "  \"latitude\": \"...\",\n"
+        "  \"longitude\": \"...\",\n"
+        "  \"photos\": [\"...\", \"...\"]\n"
+        "}\n"
     )
     prompt_end = f"\n\nQuery: {query}\nAnswer:"
     prompt = prompt_start + "\n\n---\n\n".join(contexts) + prompt_end
@@ -70,4 +83,7 @@ def get_gpt4_response(prompt):
         frequency_penalty=0,
         presence_penalty=0,
     )
-    return response.choices[0].message.content
+    try:
+        return json.loads(response.choices[0].message.content)
+    except:
+        return response.choices[0].message.content

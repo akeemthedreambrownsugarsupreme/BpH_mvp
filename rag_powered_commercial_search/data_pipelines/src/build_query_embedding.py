@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-pinecone = Pinecone(os.getenv("PINECONE_API_CODE"))
-index = pinecone.Index(os.getenv("INDEX_NAME"))
+pinecone = Pinecone(os.getenv("PINECONE_API_KEY"))
+index = pinecone.Index(os.getenv("PINECONE_COMMERCIAL_INDEX_NAME"))
 
 
 # Define the function to create embeddings

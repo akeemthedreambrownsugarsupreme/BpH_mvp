@@ -17,7 +17,7 @@ app.add_middleware(
 )
 
 app.include_router(rental.router, prefix="/rental")
-# app.include_router(commercial.router, prefix="/commercial")
+app.include_router(commercial.router, prefix="/commercial")
 
 if __name__ == "__main__":
     import uvicorn

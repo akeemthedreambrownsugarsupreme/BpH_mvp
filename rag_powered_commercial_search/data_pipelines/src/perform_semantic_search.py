@@ -7,8 +7,8 @@ from pinecone import Pinecone
 load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-Pinecone = Pinecone(os.getenv("PINECONE_API_CODE"))
-index = Pinecone.Index(os.getenv("INDEX_NAME"))
+Pinecone = Pinecone(os.getenv("PINECONE_API_KEY"))
+index = Pinecone.Index(os.getenv("PINECONE_COMMERCIAL_INDEX_NAME"))
 
 def load_query_and_embedding(file_path):
     data = np.load(file_path)

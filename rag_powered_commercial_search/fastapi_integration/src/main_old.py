@@ -46,6 +46,7 @@ def build_query(
             apartment_type,
             location_type,
         )
+        
         save_embedding(output_file_path, final_choice, embed)
 
         return templates.TemplateResponse(
