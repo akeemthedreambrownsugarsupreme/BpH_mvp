@@ -50,8 +50,8 @@ def create_prompt(query, contexts):
     prompt_start = (
         "You are an AI tasked with finding the best lots for building residential apartments."
         "The user has provided the following requirements: \n\n"
-        "Based on these requirements, return three available lots that meet the criteria. "
-        "Provide a recommendation_summary in English explaining why these lots are recommended.\n\n"
+        "Based on these requirements, return an available lot that meet the criteria. "
+        "Provide a recommendation_summary in English explaining why this lot is recommended.\n\n"
         "Only answer questions using the provided context. Do not provide any information that is not in the context and remove duplicates in choices if the latitude and longitude are the same. "
         "Provide the information in the following JSON format:\n"
         "{\n"
@@ -82,7 +82,10 @@ def get_gpt4_response(prompt):
         frequency_penalty=0,
         presence_penalty=0,
     )
-    try:
-        return json.loads(response.choices[0].message.content)
-    except:
-        return json.loads('{}')
+    json_responses = []
+    for choice in response.choices:
+        try:
+            json_responses.append(json.loads(choice.message.content))
+        except:
+            pass
+    return json_responses
