@@ -43,6 +43,7 @@ def answer_with_gpt_4(
                 "  \"latitude\": \"...\",\n"
                 "  \"longitude\": \"...\",\n"
                 "  \"photos\": [\"...\", \"...\"]\n"
+                "  \"utilities\": [\"...\", \"...\"]\n"
                 "}\n"
                 "If you are unable to answer the question using the provided context, say 'I don't know'."
             )

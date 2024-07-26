@@ -62,6 +62,7 @@ def create_prompt(query, contexts):
         "  \"latitude\": \"...\",\n"
         "  \"longitude\": \"...\",\n"
         "  \"photos\": [\"...\", \"...\"]\n"
+        "  \"utilities\": [\"...\", \"...\"]\n"
         "}\n"
     )
     prompt_end = f"\n\nQuery: {query}\nAnswer:"
