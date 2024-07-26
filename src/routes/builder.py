@@ -31,7 +31,7 @@ def perform_search(query: str):
         contexts = extract_contexts(response)
         prompt = create_prompt(query, contexts)
         gpt4_response = get_gpt4_response(prompt)
-        return {"result": gpt4_response}
+        return {"results": gpt4_response}
 
     except Exception as e:
         logger.error(f"Error in /search/: {e}")
