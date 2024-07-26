@@ -9,7 +9,7 @@ load_dotenv()
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 
 pinecone = Pinecone(api_key=PINECONE_API_KEY)
-index_name = "commercial-data-index"
+index_name = os.getenv("PINECONE_COMMERCIAL_INDEX_NAME")
 index = pinecone.Index(index_name)
 
 

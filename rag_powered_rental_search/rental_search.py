@@ -26,11 +26,11 @@ def main():
     # add documents to Pinecone index
     # upsert_embeddings(doc_embeddings)
     
-    prompt = "What will be best rental apartment for a single mom of a todler in a good neighborhood with good schools?"
+    prompt = '"Type": "Single Family", "Listing_type": "Residential", "Bedrooms": 2'
     similar_contexts = get_similar_contexts_pinecone(prompt, top_n=5)
 
     response, context_length = answer_with_gpt_4(prompt, similar_contexts, show_prompt=False)
-    logger.info("Response generated successfully!")
+    logger.info("Response generated suppoccessfully!")
     
 
 def search(query: str):

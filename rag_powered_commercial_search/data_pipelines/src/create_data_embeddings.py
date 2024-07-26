@@ -14,7 +14,7 @@ def create_embeddings(text, client):
 def main():
     client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-    csv_file_path = os.path.join("data", "commercial_data.csv")
+    csv_file_path = os.path.join("rag_powered_commercial_search/data_pipelines/data", "commercial_data.csv")
     df = pd.read_csv(csv_file_path)
 
     # Combine all columns into one text string per row
@@ -24,7 +24,7 @@ def main():
     df["embeddings"] = df["combined_text"].apply(lambda x: create_embeddings(x, client))
 
     # Save the DataFrame with embeddings to a new CSV file
-    output_csv_file_path = os.path.join("data", "commercial_data_with_embeddings.csv")
+    output_csv_file_path = os.path.join("rag_powered_commercial_search/data_pipelines/data", "commercial_data_with_embeddings.csv")
     df.to_csv(output_csv_file_path, index=False)
 
     print(f"Embeddings saved to {output_csv_file_path}")

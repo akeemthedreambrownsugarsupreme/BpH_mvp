@@ -73,5 +73,9 @@ def answer_with_gpt_4(
     
     json_responses = []
     for choice in response.choices:
-        json_responses.append(json.loads(choice.message.content))
+        try:
+            json_responses.append(json.loads(choice.message.content))
+        except:
+            logger.error(choice.message.content)
+            pass
     return json_responses, len(json_responses)

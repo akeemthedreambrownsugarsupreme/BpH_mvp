@@ -20,7 +20,6 @@ def load_query_and_embedding(file_path):
 
 
 def perform_semantic_search(query_embedding):
-    print("Performing semantic search...", type(query_embedding))
     response = index.query(
         vector=query_embedding, top_k=3, include_metadata=True
     )
@@ -86,4 +85,4 @@ def get_gpt4_response(prompt):
     try:
         return json.loads(response.choices[0].message.content)
     except:
-        return response.choices[0].message.content
+        return json.loads('{}')
