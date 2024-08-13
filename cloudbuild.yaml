@@ -1,0 +1,27 @@
+steps:
+  # Step 1: Build the Docker image
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/ardent-firefly-422220-a0/bph-app", "."]
+
+  # Step 2: Push the Docker image to GCR
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/ardent-firefly-422220-a0/bph-app"]
+
+  # Step 3: Deploy the image to Cloud Run
+  #- name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+  - name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: gcloud
+    args:
+      [
+        "run",
+        "deploy",
+        "bph-app",
+        "--image",
+        "gcr.io/ardent-firefly-422220-a0/bph-app",
+        "--platform",
+        "managed",
+        "--region",
+        "us-central1",
+        "--allow-unauthenticated",
+        "--service-account=251548591729-compute@developer.gserviceaccount.com",
+      ]
