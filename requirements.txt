@@ -6,3 +6,4 @@ openai
 pinecone-client==5.0.0
 fastapi
 uvicorn
+python-dotenv
