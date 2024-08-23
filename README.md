@@ -33,3 +33,17 @@ sudo systemctl status fastapi
 sudo nginx -t
 sudo systemctl restart nginx
 ```
+
+
+Running the docker container:
+```sh
+docker run -d -p 8000:8000 --name fastapi fastapi
+```
+
+Running the python src:
+```sh
+uvicorn src.main:app --host 0.0.0.0 --port 8000
+```
+
+
+
